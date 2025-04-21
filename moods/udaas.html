@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udaas Mood - Tere Har Mood Ke Naam 💘</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Page-specific styles */
+        body {
+            background-color: #e6e6fa;
+        }
+        
+        .mood-content {
+            border-left: 5px solid #9370db;
+        }
+        
+        .mood-message {
+            color: #4b0082;
+        }
+        
+        .tear-drop {
+            position: absolute;
+            color: #add8e6;
+            animation: fall 3s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="mood-page">
+            <header class="mood-header">
+                <h1 class="mood-page-title">Udaas hai? Main hoon na tere saath 💙</h1>
+            </header>
+            
+            <div class="mood-content">
+                <p class="mood-message typewriter">
+                    Kabhi kabhi dil udaas hota hai, aur woh bhi theek hai. Har emotion important hai, 
+                    har feeling valid hai. Tujhe pata hai, jab tu udaas hoti hai, tab bhi tu mujhe 
+                    kitni pyaari lagti hai? Tere aankhon mein aansu dekhkar mera dil bhi rota hai, 
+                    lekin main chahta hoon ki tu apni feelings express kare. Rona hai toh ro le, 
+                    lekin yaad rakh - main hamesha tere saath hoon, tere har aansu ke saath.
+                </p>
+                
+                <div class="mood-media">
+                    <img src="../assets/images/placeholder-udaas.jpg" alt="Comforting Image" class="mood-image">
+                </div>
+                
+                <button class="voice-note-button">
+                    <i class="fas fa-play"></i> Play Voice Note
+                </button>
+                
+                <div class="mood-actions">
+                    <button class="mood-button surprise-button" id="giftButton">
+                        <i class="fas fa-gift"></i> Open Surprise Gift
+                    </button>
+                    
+                    <button class="mood-button" id="cuddleButton">
+                        <i class="fas fa-heart"></i> Virtual Hug
+                    </button>
+                    
+                    <button class="mood-button surprise-button">
+                        <i class="fas fa-music"></i> Play Calming Music
+                    </button>
+                </div>
+                
+                <button class="back-button" onclick="location.href='../index.html'">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </button>
+            </div>
+        </div>
+        
+        <div class="audio-controls">
+            <button class="audio-toggle" id="audioToggle">
+                <i class="fas fa-volume-up" id="audioIcon"></i>
+            </button>
+        </div>
+    </div>
+    
+    <audio id="backgroundMusic" loop>
+        <source src="../assets/audio/background-music.mp3" type="audio/mp3">
+    </audio>
+    
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

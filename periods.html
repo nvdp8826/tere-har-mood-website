@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tere Har Mood Ke Naam 💘</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <header class="header">
+            <h1 class="site-title">Tere Har Mood Ke Naam 💘</h1>
+            <p class="site-subtitle">Jo bhi feel ho raha hai... bas choose kar le. Main har mood ke liye ready hoon.</p>
+        </header>
+        
+        <div class="mood-grid">
+            <div class="mood-card" style="--order: 1" onclick="location.href='moods/chid-chid.html'">
+                <img src="assets/images/stickers/chid-chid.png" alt="Chid Chid Mood" class="mood-sticker">
+                <h2 class="mood-title">Chid Chid</h2>
+                <p class="mood-description">Irritated mood mein kuch special</p>
+            </div>
+            
+            <div class="mood-card" style="--order: 2" onclick="location.href='moods/udaas.html'">
+                <img src="assets/images/stickers/udaas.png" alt="Chid Chid Mood" class="mood-sticker">
+                <h2 class="mood-title">Udaas</h2>
+                <p class="mood-description">Sad moments ke liye pyaar</p>
+            </div>
+            
+            <div class="mood-card" style="--order: 3" onclick="location.href='moods/khush.html'">
+                <img src="assets/images/stickers/khush.png" alt="Chid Chid Mood" class="mood-sticker">
+                <h2 class="mood-title">Khush</h2>
+                <p class="mood-description">Happy times ko celebrate karne ke liye</p>
+            </div>
+            
+            <div class="mood-card" style="--order: 4" onclick="location.href='moods/thak-gayi.html'">
+                <img src="assets/images/stickers/thak-gyi.png" alt="Chid Chid Mood" class="mood-sticker">
+                <h2 class="mood-title">Thak Gayi</h2>
+                <p class="mood-description">Tired feel ho rahi hai? Yeh dekh</p>
+            </div>
+            
+            <div class="mood-card" style="--order: 5" onclick="location.href='moods/dard.html'">
+                <img src="assets/images/stickers/dard.png" alt="Chid Chid Mood" class="mood-sticker">
+                <h2 class="mood-title">Dard Waale Din</h2>
+                <p class="mood-description">Period pain ya cramps ke liye support</p>
+            </div>
+            
+            <div class="mood-card" style="--order: 6" onclick="location.href='moods/romantic.html'">
+                <img src="assets/images/stickers/romantic.png" alt="Chid Chid Mood" class="mood-sticker">
+                <h2 class="mood-title">Romantic</h2>
+                <p class="mood-description">Pyaar bhara mood ke liye</p>
+            </div>
+            
+            <div class="mood-card" style="--order: 7" onclick="location.href='moods/yaad.html'">
+                <img src="assets/images/stickers/yaad.png" alt="Chid Chid Mood" class="mood-sticker">
+                <h2 class="mood-title">Teri Yaad</h2>
+                <p class="mood-description">Jab meri yaad aa rahi ho</p>
+            </div>
+        </div>
+        
+        <div class="audio-controls">
+            <button class="audio-toggle" id="audioToggle">
+                <i class="fas fa-volume-up" id="audioIcon"></i>
+            </button>
+        </div>
+        
+        <footer class="footer">
+            <p>Made with ❤️ for you</p>
+        </footer>
+    </div>
+    
+    <audio id="backgroundMusic" loop>
+        <source src="assets/audio/background-music.mp3" type="audio/mp3">
+    </audio>
+    
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

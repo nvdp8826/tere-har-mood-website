@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thak Gayi Mood - Tere Har Mood Ke Naam 💘</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Page-specific styles */
+        body {
+            background-color: #f0f8ff;
+        }
+        
+        .mood-content {
+            border-left: 5px solid #87ceeb;
+        }
+        
+        .mood-message {
+            color: #4682b4;
+        }
+        
+        .cloud {
+            position: absolute;
+            color: #f0f8ff;
+            font-size: 40px;
+            animation: float-slow 15s linear infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes float-slow {
+            0% {
+                transform: translateX(-100px);
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="mood-page">
+            <header class="mood-header">
+                <h1 class="mood-page-title">Thak Gayi? Aaja, thoda rest kar le 😌</h1>
+            </header>
+            
+            <div class="mood-content">
+                <p class="mood-message typewriter">
+                    Kitna kaam kiya hai tune aaj? Thak gayi hogi na? Koi baat nahi, sabko rest ki zaroorat hoti hai.
+                    Kabhi kabhi bas pause button dabana zaroori hota hai. Apne aap ko thoda time de, ek deep breath le,
+                    aur yaad rakh ki tu akeli nahi hai. Main hamesha tere saath hoon, chahe physically door kyun na hoon.
+                    Thoda rest kar le, thoda relax ho ja, aur apne aap ko woh care de jo tu deserve karti hai.
+                </p>
+                
+                <div class="mood-media">
+                    <img src="../assets/images/placeholder-thak-gayi.jpg" alt="Relaxing Image" class="mood-image">
+                </div>
+                
+                <button class="voice-note-button">
+                    <i class="fas fa-play"></i> Play Voice Note
+                </button>
+                
+                <div class="mood-actions">
+                    <button class="mood-button surprise-button" id="giftButton">
+                        <i class="fas fa-gift"></i> Open Relaxing Gift
+                    </button>
+                    
+                    <button class="mood-button" id="cuddleButton">
+                        <i class="fas fa-heart"></i> Gentle Cuddle
+                    </button>
+                    
+                    <button class="mood-button surprise-button">
+                        <i class="fas fa-spa"></i> Relaxation Exercise
+                    </button>
+                </div>
+                
+                <button class="back-button" onclick="location.href='../index.html'">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </button>
+            </div>
+        </div>
+        
+        <div class="audio-controls">
+            <button class="audio-toggle" id="audioToggle">
+                <i class="fas fa-volume-up" id="audioIcon"></i>
+            </button>
+        </div>
+    </div>
+    
+    <audio id="backgroundMusic" loop>
+        <source src="../assets/audio/background-music.mp3" type="audio/mp3">
+    </audio>
+    
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

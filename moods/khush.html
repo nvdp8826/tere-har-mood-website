@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khush Mood - Tere Har Mood Ke Naam 💘</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Page-specific styles */
+        body {
+            background-color: #fffacd;
+        }
+        
+        .mood-content {
+            border-left: 5px solid #ffd700;
+        }
+        
+        .mood-message {
+            color: #ff8c00;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ffd700;
+            animation: confetti-fall 5s linear infinite;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="mood-page">
+            <header class="mood-header">
+                <h1 class="mood-page-title">Khush hai tu? Mera din bhi ban gaya! 🌞</h1>
+            </header>
+            
+            <div class="mood-content">
+                <p class="mood-message typewriter">
+                    Teri khushi dekhkar mera din bhi khushiyon se bhar jata hai! Jab tu muskurati hai, 
+                    toh duniya bhi muskurane lagti hai. Teri hasi meri favorite melody hai, aur tere 
+                    khush hone se mujhe sabse zyada sukoon milta hai. Bas aise hi khush rehna hamesha, 
+                    kyunki teri khushi mein hi meri khushi hai. Aur yaad rakh, chahe tu kitni bhi door ho, 
+                    teri khushi ka celebration hum saath mein hi karenge!
+                </p>
+                
+                <div class="mood-media">
+                    <img src="../assets/images/placeholder-khush.jpg" alt="Happy Moment" class="mood-image">
+                </div>
+                
+                <button class="voice-note-button">
+                    <i class="fas fa-play"></i> Play Voice Note
+                </button>
+                
+                <div class="mood-actions">
+                    <button class="mood-button surprise-button" id="giftButton">
+                        <i class="fas fa-gift"></i> Open Celebration Gift
+                    </button>
+                    
+                    <button class="mood-button" id="cuddleButton">
+                        <i class="fas fa-heart"></i> Send Happy Dance
+                    </button>
+                    
+                    <button class="mood-button surprise-button">
+                        <i class="fas fa-camera"></i> Capture This Moment
+                    </button>
+                </div>
+                
+                <button class="back-button" onclick="location.href='../index.html'">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </button>
+            </div>
+        </div>
+        
+        <div class="audio-controls">
+            <button class="audio-toggle" id="audioToggle">
+                <i class="fas fa-volume-up" id="audioIcon"></i>
+            </button>
+        </div>
+    </div>
+    
+    <audio id="backgroundMusic" loop>
+        <source src="../assets/audio/background-music.mp3" type="audio/mp3">
+    </audio>
+    
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

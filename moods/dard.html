@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dard Waale Din - Tere Har Mood Ke Naam 💘</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Page-specific styles */
+        body {
+            background-color: #fff0f5;
+        }
+        
+        .mood-content {
+            border-left: 5px solid #db7093;
+        }
+        
+        .mood-message {
+            color: #c71585;
+        }
+        
+        .warm-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,182,193,0.3) 0%, rgba(255,255,255,0) 70%);
+            top: 0;
+            left: 0;
+            z-index: -1;
+            animation: pulse-slow 4s infinite alternate;
+        }
+        
+        @keyframes pulse-slow {
+            from { opacity: 0.3; }
+            to { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="warm-glow"></div>
+    
+    <div class="container">
+        <div class="mood-page">
+            <header class="mood-header">
+                <h1 class="mood-page-title">Dard waale din? Main tere saath hoon 💗</h1>
+            </header>
+            
+            <div class="mood-content">
+                <p class="mood-message typewriter">
+                    Period pain ya cramps se pareshan hai? I know it's tough. Kaash main wahan hota aur tere 
+                    liye hot water bottle laa sakta, ya tere favorite chocolate. Lekin door hone ke bawajood bhi, 
+                    main tere saath hoon. Yaad rakh, tu strong hai, brave hai, aur ye dard bhi guzar jayega. 
+                    Thoda rest kar, apne aap ko pamper kar, aur yaad rakh ki main hamesha tere liye hoon, 
+                    chahe kaise bhi din ho.
+                </p>
+                
+                <div class="mood-media">
+                    <img src="../assets/images/placeholder-dard.jpg" alt="Comforting Image" class="mood-image">
+                </div>
+                
+                <button class="voice-note-button">
+                    <i class="fas fa-play"></i> Play Voice Note
+                </button>
+                
+                <div class="mood-actions">
+                    <button class="mood-button surprise-button" id="giftButton">
+                        <i class="fas fa-gift"></i> Open Comfort Gift
+                    </button>
+                    
+                    <button class="mood-button" id="cuddleButton">
+                        <i class="fas fa-heart"></i> Warm Virtual Hug
+                    </button>
+                    
+                    <button class="mood-button surprise-button">
+                        <i class="fas fa-mug-hot"></i> Virtual Hot Chocolate
+                    </button>
+                </div>
+                
+                <button class="back-button" onclick="location.href='../index.html'">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </button>
+            </div>
+        </div>
+        
+        <div class="audio-controls">
+            <button class="audio-toggle" id="audioToggle">
+                <i class="fas fa-volume-up" id="audioIcon"></i>
+            </button>
+        </div>
+    </div>
+    
+    <audio id="backgroundMusic" loop>
+        <source src="../assets/audio/background-music.mp3" type="audio/mp3">
+    </audio>
+    
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

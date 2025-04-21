@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chid Chid Mood - Tere Har Mood Ke Naam 💘</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* Page-specific styles */
+      body {
+        background-color: #ffe6e6;
+      }
+
+      .mood-content {
+        border-left: 5px solid #ff8080;
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          transform: translateX(-5px);
+        }
+        20%,
+        40%,
+        60%,
+        80% {
+          transform: translateX(5px);
+        }
+      }
+  .mood-content,
+  .mood-message,
+  .mood-media,
+  .mood-actions,
+  .back-button,
+  .mood-header {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+
+      .shake {
+        animation: shake 0.5s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="particles" id="particles"></div>
+
+    <div id="face-bg">
+      <img
+        id="emotionGirl"
+        src="../assets/images/chid-chid-1.png"
+        alt="Her Mood Face"
+      />
+    </div>
+
+    <div class="container">
+      <div class="mood-page">
+        <header class="mood-header">
+          <h1 class="mood-page-title">
+            Chid Chid hai tu? Aaja thoda sa pyaar le le 🤍
+          </h1>
+        </header>
+
+        <div class="mood-content">
+          <p class="mood-message typewriter">
+            Pata hai, kabhi kabhi duniya bahut irritating lagti hai. Sab kuch
+            annoying, har cheez se gussa aata hai. Lekin tujhe pata hai? Teri
+            chid-chid bhi mujhe pyaari lagti hai. Kyunki woh bhi teri
+            personality ka ek hissa hai. Aur main tujhe har mood mein accept
+            karta hoon. Toh thoda sa relax ho ja, deep breath le, aur yaad rakh
+            - main hamesha tere saath hoon, chahe tu kitni bhi irritated kyun na
+            ho.
+          </p>
+
+          <div class="mood-media">
+            <img
+              src="../assets/images/placeholder-chid-chid.png"
+              alt="Calming Image"
+              class="mood-calm-img"
+            />
+          </div>
+
+          <button class="voice-note-button">
+            <i class="fas fa-play"></i> Play Voice Note
+          </button>
+
+          <div class="mood-actions">
+            <button class="mood-button" id="slapButton">
+              <i class="fas fa-hand-paper"></i> Slap Navdeep
+            </button>
+
+            <button class="mood-button surprise-button" id="giftButton">
+              <i class="fas fa-gift"></i> Open Surprise Gift
+            </button>
+
+            <button class="mood-button" id="cuddleButton">
+              <i class="fas fa-heart"></i> Cuddle from Screen
+            </button>
+          </div>
+
+          <button class="back-button" onclick="location.href='../index.html'">
+            <i class="fas fa-arrow-left"></i> Back to Home
+          </button>
+        </div>
+      </div>
+
+      <div class="audio-controls">
+        <button class="audio-toggle" id="audioToggle">
+          <i class="fas fa-volume-up" id="audioIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+      <source src="../assets/audio/background-music.mp3" type="audio/mp3" />
+    </audio>
+    <div
+      id="slapSticker"
+      style="
+        display: none;
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+      "
+    >
+      <img
+        src="../assets/images/stickers/slap.png"
+        alt="Slap Sticker"
+        style="width: 160px; pointer-events: none"
+      />
+    </div>
+    <!-- Surprise Gift Popup -->
+    <div id="chidSurpriseGift" class="gift-popup" style="display: none">
+      <div class="gift-flex">
+        <img
+          src="../assets/images/polaroid-1.png"
+          class="gift-img left-polaroid"
+          alt="Polaroid 1"
+        />
+
+        <img
+          src="../assets/images/chid-chid-letter.png"
+          class="gift-img letter-center"
+          alt="Letter Image"
+        />
+
+        <img
+          src="../assets/images/polaroid-2.png"
+          class="gift-img right-polaroid"
+          alt="Polaroid 2"
+        />
+      </div>
+      <button class="gift-close" onclick="closeChidGift()">&times;</button>
+    </div>
+    <div id="fireworks-container" style="display: none">
+      <div class="firework fw1"></div>
+      <div class="firework fw2"></div>
+      <div class="firework fw3"></div>
+      <div class="firework fw4"></div>
+      <div class="firework fw5"></div>
+    </div>
+    <!-- Cuddle Hug Overlay -->
+    <div id="hugOverlay">
+      <img
+        src="../assets/images/left-arm.png"
+        class="hug-arm left"
+        alt="Left Arm"
+      />
+      <img
+        src="../assets/images/right-arm.png"
+        class="hug-arm right"
+        alt="Right Arm"
+      />
+      <div class="hug-text">Here’s my hug, just for you 💖</div>
+    </div>
+
+    <script>
+      // Tell the global script that this page is inside /moods/
+      window.overrideStickerPath = "../assets/images/stickers/";
+    </script>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>

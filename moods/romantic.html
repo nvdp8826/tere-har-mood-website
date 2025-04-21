@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Mood - Tere Har Mood Ke Naam 💘</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Page-specific styles */
+        body {
+            background-color: #ffe4e1;
+        }
+        
+        .mood-content {
+            border-left: 5px solid #ff1493;
+        }
+        
+        .mood-message {
+            color: #c71585;
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float-heart 15s linear infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes float-heart {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <div class="container">
+        <div class="mood-page">
+            <header class="mood-header">
+                <h1 class="mood-page-title">Romantic mood mein hai? Mera dil bhi dhadak raha hai ❤️</h1>
+            </header>
+            
+            <div class="mood-content">
+                <p class="mood-message typewriter">
+                    Tere romantic mood mein mera dil bhi pighal jata hai. Jab tu pyaar se bhari hoti hai, 
+                    toh mujhe lagta hai ki main duniya ka sabse lucky insaan hoon. Tere aankhon mein jo 
+                    chamak hoti hai, tere hothon pe jo muskaan hoti hai - woh meri jaan hai. Chahe kitni 
+                    bhi dooriyan ho humare beech, humare dil hamesha connected hain. Tu meri har saans mein 
+                    hai, har dhadkan mein hai. I love you, today, tomorrow, and forever.
+                </p>
+                
+                <div class="mood-media">
+                    <img src="../assets/images/placeholder-romantic.jpg" alt="Romantic Image" class="mood-image">
+                </div>
+                
+                <button class="voice-note-button">
+                    <i class="fas fa-play"></i> Play Voice Note
+                </button>
+                
+                <div class="mood-actions">
+                    <button class="mood-button surprise-button" id="giftButton">
+                        <i class="fas fa-gift"></i> Open Love Letter
+                    </button>
+                    
+                    <button class="mood-button" id="cuddleButton">
+                        <i class="fas fa-heart"></i> Send Virtual Kiss
+                    </button>
+                    
+                    <button class="mood-button surprise-button">
+                        <i class="fas fa-music"></i> Play Our Song
+                    </button>
+                </div>
+                
+                <button class="back-button" onclick="location.href='../index.html'">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </button>
+            </div>
+        </div>
+        
+        <div class="audio-controls">
+            <button class="audio-toggle" id="audioToggle">
+                <i class="fas fa-volume-up" id="audioIcon"></i>
+            </button>
+        </div>
+    </div>
+    
+    <audio id="backgroundMusic" loop>
+        <source src="../assets/audio/background-music.mp3" type="audio/mp3">
+    </audio>
+    
+    <script src="../assets/js/script.js"></script>
+    <script>
+        // Additional script for floating hearts
+        document.addEventListener('DOMContentLoaded', () => {
+            const heartsContainer = document.getElementById('floatingHearts');
+            
+            function createFloatingHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤️';
+                
+                // Random position and size
+                const posX = Math.random() * 100;
+                heart.style.left = `${posX}%`;
+                heart.style.bottom = '-20px';
+                heart.style.fontSize = `${Math.random() * 15 + 10}px`;
+                
+                // Random animation duration and delay
+                const duration = Math.random() * 10 + 10;
+                heart.style.animationDuration = `${duration}s`;
+                
+                heartsContainer.appendChild(heart);
+                
+                // Remove heart after animation completes
+                setTimeout(() => {
+                    heart.remove();
+                }, duration * 1000);
+            }
+            
+            // Create hearts periodically
+            setInterval(createFloatingHeart, 1000);
+            
+            // Create initial hearts
+            for (let i = 0; i < 10; i++) {
+                createFloatingHeart();
+            }
+        });
+    </script>
+</body>
+</html>
