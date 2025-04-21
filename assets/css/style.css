@@ -793,3 +793,83 @@ body {
   100% { transform: translateY(-80px); opacity: 0; }
 }
 
+.mood-calm-img {
+  display: block !important;
+  max-width: 100% !important;
+  width: 300px !important;
+  height: auto !important;
+  opacity: 1 !important;
+  border: 2px solid #ff8cbf;
+}
+
+#hugWrapper.hug-squeeze {
+  animation: squeezeHug 0.6s ease-in-out;
+}
+
+@keyframes squeezeHug {
+  0% { transform: scale(1); }
+  25% { transform: scale(0.96); }
+  50% { transform: scale(0.94); }
+  75% { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+
+.hug-arm {
+  animation: none; /* Reset */
+}
+
+#hugOverlay.active .hug-arm.left {
+  animation: armSlideInLeft 1s ease forwards;
+}
+
+#hugOverlay.active .hug-arm.right {
+  animation: armSlideInRight 1s ease forwards;
+}
+
+@keyframes armSlideInLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(280px);
+    opacity: 1;
+  }
+}
+
+@keyframes armSlideInRight {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-280px);
+    opacity: 1;
+  }
+}
+#hugOverlay.active {
+  animation: heartbeat 1s ease infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+#hugOverlay.active .hug-arm.left {
+  animation: armSlideInLeft 1s ease forwards;
+}
+
+#hugOverlay.active .hug-arm.right {
+  animation: armSlideInRight 1s ease forwards;
+}
+
+@keyframes armSlideInLeft {
+  0% { transform: translateX(0); opacity: 0; }
+  100% { transform: translateX(280px); opacity: 1; }
+}
+
+@keyframes armSlideInRight {
+  0% { transform: translateX(0); opacity: 0; }
+  100% { transform: translateX(-280px); opacity: 1; }
+}
+

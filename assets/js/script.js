@@ -401,6 +401,8 @@ document.addEventListener("DOMContentLoaded", function () {
       cuddleButton.addEventListener("click", () => {
         // 🫂 Show arms
         hugOverlay.classList.add("active");
+        document.getElementById("hugWrapper").classList.add("hug-squeeze");
+
   
         // 💓 Vibrate
         if (navigator.vibrate) navigator.vibrate(200);
@@ -438,8 +440,10 @@ document.addEventListener("DOMContentLoaded", function () {
   
         // 🕐 Reset
         setTimeout(() => {
-          hugOverlay.classList.remove("active");
-        }, 4000);
+            hugOverlay.classList.remove("active");
+            document.getElementById("hugWrapper").classList.remove("hug-squeeze");
+          }, 4000);
+          
       });
     }
   });
