@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Udaas Mood - Tere Har Mood Ke Naam 💘</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Udaas Mood - Aapke Har Mood Ke Naam 💘</title>
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Page-specific styles */
@@ -13,7 +13,13 @@
         }
         
         .mood-content {
-            border-left: 5px solid #9370db;
+          background-color: #ffffff;
+          border-left: 5px solid #9370db;
+          padding: 1.5rem;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          position: relative;
+          z-index: 10;
         }
         
         .mood-message {
@@ -37,6 +43,64 @@
                 opacity: 0;
             }
         }
+
+        .container {
+          position: relative;
+          z-index: 10;
+          padding: 20px;
+          max-width: 960px;
+          margin: 0 auto;
+        }
+
+        .mood-page {
+          position: relative;
+          z-index: 10;
+          background-color: #ffffff;
+          border-radius: 15px;
+          padding: 40px 20px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #particles {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          pointer-events: none;
+        }
+
+        .mood-button,
+        .voice-note-button,
+        .back-button {
+          background-color: #9370db;
+          color: white;
+          padding: 12px 24px;
+          border: none;
+          border-radius: 25px;
+          font-size: 1rem;
+          font-weight: bold;
+          cursor: pointer;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+          margin: 10px 5px;
+          transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .mood-button:hover,
+        .voice-note-button:hover,
+        .back-button:hover {
+          background-color: #7a5bd7;
+          transform: scale(1.05);
+        }
+
+        .mood-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          justify-content: center;
+          margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -45,7 +109,7 @@
     <div class="container">
         <div class="mood-page">
             <header class="mood-header">
-                <h1 class="mood-page-title">Udaas hai? Main hoon na tere saath 💙</h1>
+                <h1 class="mood-page-title">Udaas ho? Main hoon na aapke saath 💙</h1>
             </header>
             
             <div class="mood-content">
@@ -58,7 +122,7 @@
                 </p>
                 
                 <div class="mood-media">
-                    <img src="../assets/images/placeholder-udaas.jpg" alt="Comforting Image" class="mood-image">
+                    <img src="assets/images/placeholder-udaas.jpg" alt="Comforting Image" class="mood-image">
                 </div>
                 
                 <button class="voice-note-button">
@@ -79,9 +143,14 @@
                     </button>
                 </div>
                 
-                <button class="back-button" onclick="location.href='../index.html'">
-                    <i class="fas fa-arrow-left"></i> Back to Home
-                </button>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                  <button class="back-button" onclick="location.href='index.html'">
+                      <i class="fas fa-arrow-left"></i> Back to Home
+                  </button>
+                  <button class="back-button" onclick="location.href='periods.html'">
+                      <i class="fas fa-heartbeat"></i> Back to Periods
+                  </button>
+                </div>
             </div>
         </div>
         
@@ -93,9 +162,69 @@
     </div>
     
     <audio id="backgroundMusic" loop>
-        <source src="../assets/audio/background-music.mp3" type="audio/mp3">
+        <source src="assets/audio/background-music.mp3" type="audio/mp3">
     </audio>
     
-    <script src="../assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <script>
+      const particles = document.getElementById("particles");
+
+      const stickerList = [
+        "tog1.png", "tog2.png", "tog3.png", "tog4.png", "tog5.png",
+        "tog6.png", "tog7.png", "tog8.png", "tog9.png", "tog10.png", "tog11.png"
+      ];
+
+      function createStickerParticle() {
+        const particle = document.createElement("div");
+        particle.className = "particle";
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.bottom = `-80px`;
+        particle.style.width = `${Math.random() * 30 + 40}px`;
+        particle.style.height = particle.style.width;
+        particle.style.animationDuration = `${8 + Math.random() * 4}s`;
+        particle.style.animationTimingFunction = 'ease-in';
+        particle.style.animationName = "floatUp";
+        particle.style.opacity = 0.05;
+
+        const img = document.createElement("img");
+        const chosen = stickerList[Math.floor(Math.random() * stickerList.length)];
+        img.src = `assets/images/stickers/${chosen}`;
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.style.objectFit = "contain";
+
+        particle.appendChild(img);
+        particles.appendChild(particle);
+
+        setTimeout(() => {
+          particle.remove();
+        }, 19000);
+      }
+
+      setInterval(() => {
+        if (document.hasFocus()) {
+          createStickerParticle();
+        }
+      }, 300);
+
+      for (let i = 0; i < 25; i++) {
+        createStickerParticle();
+      }
+    </script>
+
+    <style>
+      .particle {
+        position: absolute;
+        animation-fill-mode: forwards;
+        z-index: 0;
+      }
+
+      @keyframes floatUp {
+        0% { transform: translateY(0) scale(1); opacity: 0; }
+        20% { opacity: 1; }
+        100% { transform: translateY(-120vh) scale(1.1); opacity: 0; }
+      }
+    </style>
 </body>
 </html>

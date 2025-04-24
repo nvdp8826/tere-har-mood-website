@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tere Har Mood Ke Naam 💘</title>
+    <title>Aapke Har Mood Ke Naam 💘</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
@@ -29,6 +29,18 @@
           opacity: 0;
         }
       }
+
+      .mood-card {
+        background-color: #ffffff; /* Solid white */
+        opacity: 1; /* Fully opaque */
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        z-index: 10;
+        position: relative;
+      }
+      /* Remove any backdrop-filter for mood-card if it exists */
     </style>
 </head>
 <body>
@@ -36,7 +48,7 @@
     
     <div class="container">
         <header class="header">
-            <h1 class="site-title">Tere Har Mood Ke Naam 💘</h1>
+            <h1 class="site-title">Aapke Har Mood Ke Naam 💘</h1>
             <p class="site-subtitle">Jo bhi feel ho raha hai... bas choose kar le. Main har mood ke liye ready hoon.</p>
         </header>
         
@@ -62,12 +74,12 @@
             <div class="mood-card" style="--order: 4" onclick="location.href='thak-gayi.html'">
                 <img src="assets/images/stickers/thak-gyi.png" alt="Thak Gayi Mood" class="mood-sticker">
                 <h2 class="mood-title">Thak Gayi</h2>
-                <p class="mood-description">Tired feel ho rahi hai? Yeh dekh</p>
+                <p class="mood-description">Feeling Tiredddd :(</p>
             </div>
             
             <div class="mood-card" style="--order: 5" onclick="location.href='dard.html'">
                 <img src="assets/images/stickers/dard.png" alt="Dard Waale Din Mood" class="mood-sticker">
-                <h2 class="mood-title">Dard Waale Din</h2>
+                <h2 class="mood-title">Feeling Pain</h2>
                 <p class="mood-description">Period pain ya cramps ke liye support</p>
             </div>
             
@@ -139,7 +151,7 @@
     }
   }, 300);
 
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 5; i++) {
     createStickerParticle();
   }
 </script>
