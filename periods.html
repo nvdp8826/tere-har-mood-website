@@ -8,6 +8,28 @@
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      .particle {
+        position: absolute;
+        animation: floatUp 10s linear forwards;
+        pointer-events: none;
+        opacity: 0.15; /* further reduced opacity for better readability of foreground content */
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-150vh) scale(1.1);
+          opacity: 0;
+        }
+      }
+    </style>
 </head>
 <body>
     <div class="particles" id="particles"></div>
@@ -19,44 +41,44 @@
         </header>
         
         <div class="mood-grid">
-            <div class="mood-card" style="--order: 1" onclick="location.href='moods/chid-chid.html'">
+            <div class="mood-card" style="--order: 1" onclick="location.href='chid-chid.html'">
                 <img src="assets/images/stickers/chid-chid.png" alt="Chid Chid Mood" class="mood-sticker">
                 <h2 class="mood-title">Chid Chid</h2>
                 <p class="mood-description">Irritated mood mein kuch special</p>
             </div>
             
-            <div class="mood-card" style="--order: 2" onclick="location.href='moods/udaas.html'">
-                <img src="assets/images/stickers/udaas.png" alt="Chid Chid Mood" class="mood-sticker">
+            <div class="mood-card" style="--order: 2" onclick="location.href='udaas.html'">
+                <img src="assets/images/stickers/udaas.png" alt="Udaas Mood" class="mood-sticker">
                 <h2 class="mood-title">Udaas</h2>
                 <p class="mood-description">Sad moments ke liye pyaar</p>
             </div>
             
-            <div class="mood-card" style="--order: 3" onclick="location.href='moods/khush.html'">
-                <img src="assets/images/stickers/khush.png" alt="Chid Chid Mood" class="mood-sticker">
+            <div class="mood-card" style="--order: 3" onclick="location.href='khush.html'">
+                <img src="assets/images/stickers/khush.png" alt="Khush Mood" class="mood-sticker">
                 <h2 class="mood-title">Khush</h2>
                 <p class="mood-description">Happy times ko celebrate karne ke liye</p>
             </div>
             
-            <div class="mood-card" style="--order: 4" onclick="location.href='moods/thak-gayi.html'">
-                <img src="assets/images/stickers/thak-gyi.png" alt="Chid Chid Mood" class="mood-sticker">
+            <div class="mood-card" style="--order: 4" onclick="location.href='thak-gayi.html'">
+                <img src="assets/images/stickers/thak-gyi.png" alt="Thak Gayi Mood" class="mood-sticker">
                 <h2 class="mood-title">Thak Gayi</h2>
                 <p class="mood-description">Tired feel ho rahi hai? Yeh dekh</p>
             </div>
             
-            <div class="mood-card" style="--order: 5" onclick="location.href='moods/dard.html'">
-                <img src="assets/images/stickers/dard.png" alt="Chid Chid Mood" class="mood-sticker">
+            <div class="mood-card" style="--order: 5" onclick="location.href='dard.html'">
+                <img src="assets/images/stickers/dard.png" alt="Dard Waale Din Mood" class="mood-sticker">
                 <h2 class="mood-title">Dard Waale Din</h2>
                 <p class="mood-description">Period pain ya cramps ke liye support</p>
             </div>
             
-            <div class="mood-card" style="--order: 6" onclick="location.href='moods/romantic.html'">
-                <img src="assets/images/stickers/romantic.png" alt="Chid Chid Mood" class="mood-sticker">
+            <div class="mood-card" style="--order: 6" onclick="location.href='romantic.html'">
+                <img src="assets/images/stickers/romantic.png" alt="Romantic Mood" class="mood-sticker">
                 <h2 class="mood-title">Romantic</h2>
                 <p class="mood-description">Pyaar bhara mood ke liye</p>
             </div>
             
-            <div class="mood-card" style="--order: 7" onclick="location.href='moods/yaad.html'">
-                <img src="assets/images/stickers/yaad.png" alt="Chid Chid Mood" class="mood-sticker">
+            <div class="mood-card" style="--order: 7" onclick="location.href='yaad.html'">
+                <img src="assets/images/stickers/yaad.png" alt="Teri Yaad Mood" class="mood-sticker">
                 <h2 class="mood-title">Teri Yaad</h2>
                 <p class="mood-description">Jab meri yaad aa rahi ho</p>
             </div>
@@ -77,6 +99,56 @@
         <source src="assets/audio/background-music.mp3" type="audio/mp3">
     </audio>
     
+    <script>
+  const particles = document.getElementById("particles");
+
+  const stickerList = [
+    "tog1.png", "tog2.png", "tog3.png", "tog4.png", "tog5.png",
+    "tog6.png", "tog7.png", "tog8.png", "tog9.png", "tog10.png", "tog11.png"
+  ];
+
+  function createStickerParticle() {
+    const particle = document.createElement("div");
+    particle.className = "particle";
+    particle.style.left = `${Math.random() * 100}vw`;
+    particle.style.bottom = `-80px`;
+    particle.style.width = `${Math.random() * 30 + 40}px`;
+    particle.style.height = particle.style.width;
+    particle.style.animationDuration = `${8 + Math.random() * 2}s`;
+    particle.style.animationName = "floatUp";
+    particle.style.animationTimingFunction = 'ease-in';
+
+    const img = document.createElement("img");
+    const chosen = stickerList[Math.floor(Math.random() * stickerList.length)];
+    img.src = `${window.overrideStickerPath || "assets/images/stickers/"}${chosen}`;
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "contain";
+
+    particle.appendChild(img);
+    particles.appendChild(particle);
+
+    setTimeout(() => {
+      particle.remove();
+    }, 10000);
+  }
+
+  setInterval(() => {
+    if (document.hasFocus()) {
+      createStickerParticle();
+    }
+  }, 300);
+
+  for (let i = 0; i < 25; i++) {
+    createStickerParticle();
+  }
+</script>
+</script>
+    <div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 10;">
+      <a href="index.html" style="background-color: #ff8cbf; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 0 10px rgba(255, 140, 191, 0.5); transition: background-color 0.3s;">
+        ⬅️ Back to Home
+      </a>
+    </div>
     <script src="assets/js/script.js"></script>
 </body>
 </html>

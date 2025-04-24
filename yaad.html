@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teri Yaad Mood - Tere Har Mood Ke Naam 💘</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Page-specific styles */
@@ -92,18 +92,18 @@
                 
                 <div class="memory-photos">
                     <div class="memory-photo">
-                        <img src="../assets/images/placeholder-memory1.jpg" alt="Memory 1">
+                        <img src="assets/images/placeholder-memory1.jpg" alt="Memory 1">
                     </div>
                     <div class="memory-photo">
-                        <img src="../assets/images/placeholder-memory2.jpg" alt="Memory 2">
+                        <img src="assets/images/placeholder-memory2.jpg" alt="Memory 2">
                     </div>
                     <div class="memory-photo">
-                        <img src="../assets/images/placeholder-memory3.jpg" alt="Memory 3">
+                        <img src="assets/images/placeholder-memory3.jpg" alt="Memory 3">
                     </div>
                 </div>
                 
                 <div class="mood-media">
-                    <img src="../assets/images/placeholder-yaad.jpg" alt="Missing You" class="mood-image">
+                    <img src="assets/images/placeholder-yaad.jpg" alt="Missing You" class="mood-image">
                 </div>
                 
                 <button class="voice-note-button">
@@ -124,7 +124,7 @@
                     </button>
                 </div>
                 
-                <button class="back-button" onclick="location.href='../index.html'">
+                <button class="back-button" onclick="location.href='index.html'">
                     <i class="fas fa-arrow-left"></i> Back to Home
                 </button>
             </div>
@@ -138,10 +138,10 @@
     </div>
     
     <audio id="backgroundMusic" loop>
-        <source src="../assets/audio/background-music.mp3" type="audio/mp3">
+        <source src="assets/audio/background-music.mp3" type="audio/mp3">
     </audio>
     
-    <script src="../assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
     <script>
         // Additional script for twinkling stars
         document.addEventListener('DOMContentLoaded', () => {
@@ -182,5 +182,63 @@
             window.addEventListener('resize', createStars);
         });
     </script>
+<script>
+  const particles = document.getElementById("particles");
+
+  const stickerList = [
+    "tog1.png", "tog2.png", "tog3.png", "tog4.png", "tog5.png",
+    "tog6.png", "tog7.png", "tog8.png", "tog9.png", "tog10.png", "tog11.png"
+  ];
+
+  function createStickerParticle() {
+    const particle = document.createElement("div");
+    particle.className = "particle";
+    particle.style.left = `${Math.random() * 100}vw`;
+    particle.style.bottom = `-80px`;
+    particle.style.width = `${Math.random() * 30 + 40}px`;
+    particle.style.height = particle.style.width;
+    particle.style.animationDuration = `${8 + Math.random() * 4}s`;
+    particle.style.animationTimingFunction = 'ease-in';
+    particle.style.animationName = "floatUp";
+    particle.style.opacity = 0.05;
+
+    const img = document.createElement("img");
+    const chosen = stickerList[Math.floor(Math.random() * stickerList.length)];
+    img.src = `assets/images/stickers/${chosen}`;
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "contain";
+
+    particle.appendChild(img);
+    particles.appendChild(particle);
+
+    setTimeout(() => {
+      particle.remove();
+    }, 19000);
+  }
+
+  setInterval(() => {
+    if (document.hasFocus()) {
+      createStickerParticle();
+    }
+  }, 300);
+
+  for (let i = 0; i < 25; i++) {
+    createStickerParticle();
+  }
+</script>
+
+<style>
+  .particle {
+    position: absolute;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-120vh) scale(1.1); opacity: 0; }
+  }
+</style>
 </body>
 </html>

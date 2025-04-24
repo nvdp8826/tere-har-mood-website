@@ -147,7 +147,9 @@ body {
   overflow: hidden;
   animation: fadeIn 0.8s ease-out forwards;
   animation-delay: calc(var(--order) * 0.1s);
-  opacity: 0;
+  opacity: 1; /* Ensure it's visible */
+  visibility: visible; /* Ensure it's not hidden */
+  z-index: 1; /* Appear above particles */
 }
 
 .mood-card::before {

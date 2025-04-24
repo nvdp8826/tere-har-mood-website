@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chid Chid Mood - Tere Har Mood Ke Naam 💘</title>
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -38,20 +38,51 @@
           transform: translateX(5px);
         }
       }
-  .mood-content,
-  .mood-message,
-  .mood-media,
-  .mood-actions,
-  .back-button,
-  .mood-header {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-  }
-
+      .mood-content,
+      .mood-message,
+      .mood-media,
+      .mood-actions,
+      .back-button,
+      .mood-header {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
 
       .shake {
         animation: shake 0.5s ease-in-out;
+      }
+
+      /* Floating sticker animation styles - matches homepage */
+      #particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Send particles behind all other elements */
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .particle {
+        position: absolute;
+        animation: floatUp 8s ease-in infinite;
+        opacity: 0.1;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-120vh) scale(1.1);
+          opacity: 0;
+        }
       }
     </style>
   </head>
@@ -61,7 +92,7 @@
     <div id="face-bg">
       <img
         id="emotionGirl"
-        src="../assets/images/chid-chid-1.png"
+        src="assets/images/chid-chid-1.png"
         alt="Her Mood Face"
       />
     </div>
@@ -81,7 +112,7 @@
 
           <div class="mood-media">
             <img
-              src="../assets/images/placeholder-chid-chid.png"
+              src="assets/images/placeholder-chid-chid.png"
               alt="Calming Image"
               class="mood-calm-img"
             />
@@ -105,8 +136,12 @@
             </button>
           </div>
 
-          <button class="back-button" onclick="location.href='../index.html'">
+          <button class="back-button" onclick="location.href='index.html'">
             <i class="fas fa-arrow-left"></i> Back to Home
+          </button>
+
+          <button class="back-button" onclick="location.href='periods.html'">
+            <i class="fas fa-arrow-left"></i> Back to Periods-Section
           </button>
         </div>
       </div>
@@ -119,7 +154,7 @@
     </div>
     </div>
     <audio id="backgroundMusic" loop>
-      <source src="../assets/audio/background-music.mp3" type="audio/mp3" />
+      <source src="assets/audio/background-music.mp3" type="audio/mp3" />
     </audio>
     <div
       id="slapSticker"
@@ -133,7 +168,7 @@
       "
     >
       <img
-        src="../assets/images/stickers/slap.png"
+        src="assets/images/stickers/slap.png"
         alt="Slap Sticker"
         style="width: 160px; pointer-events: none"
       />
@@ -142,19 +177,19 @@
     <div id="chidSurpriseGift" class="gift-popup" style="display: none">
       <div class="gift-flex">
         <img
-          src="../assets/images/polaroid-1.png"
+          src="assets/images/polaroid-1.png"
           class="gift-img left-polaroid"
           alt="Polaroid 1"
         />
 
         <img
-          src="../assets/images/chid-chid-letter.png"
+          src="assets/images/chid-chid-letter.png"
           class="gift-img letter-center"
           alt="Letter Image"
         />
 
         <img
-          src="../assets/images/polaroid-2.png"
+          src="assets/images/polaroid-2.png"
           class="gift-img right-polaroid"
           alt="Polaroid 2"
         />
@@ -171,12 +206,12 @@
     <!-- Cuddle Hug Overlay -->
     <div id="hugOverlay">
       <img
-        src="../assets/images/left-arm.png"
+        src="assets/images/left-arm.png"
         class="hug-arm left"
         alt="Left Arm"
       />
       <img
-        src="../assets/images/right-arm.png"
+        src="assets/images/right-arm.png"
         class="hug-arm right"
         alt="Right Arm"
       />
@@ -185,8 +220,51 @@
 
     <script>
       // Tell the global script that this page is inside /moods/
-      window.overrideStickerPath = "../assets/images/stickers/";
+      window.overrideStickerPath = "assets/images/stickers/";
     </script>
-    <script src="../assets/js/script.js"></script>
+    <script>
+      const particles = document.getElementById("particles");
+
+      const stickerList = [
+        "tog1.png", "tog2.png", "tog3.png", "tog4.png", "tog5.png",
+        "tog6.png", "tog7.png", "tog8.png", "tog9.png", "tog10.png", "tog11.png"
+      ];
+
+      function createStickerParticle() {
+        const particle = document.createElement("div");
+        particle.className = "particle";
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.bottom = `-80px`;
+        particle.style.width = `${Math.random() * 30 + 40}px`;
+        particle.style.height = particle.style.width;
+        particle.style.animationDuration = `${8 + Math.random() * 4}s`;
+        particle.style.animationTimingFunction = 'ease-in';
+
+        const img = document.createElement("img");
+        const chosen = stickerList[Math.floor(Math.random() * stickerList.length)];
+        img.src = `${window.overrideStickerPath}${chosen}`;
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.style.objectFit = "contain";
+
+        particle.appendChild(img);
+        particles.appendChild(particle);
+
+        setTimeout(() => {
+          particle.remove();
+        }, 190000);
+      }
+
+      setInterval(() => {
+        if (document.hasFocus()) {
+          createStickerParticle();
+        }
+      }, 300);
+
+      for (let i = 0; i < 25; i++) {
+        createStickerParticle();
+      }
+    </script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>

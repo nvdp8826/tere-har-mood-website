@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dard Waale Din - Tere Har Mood Ke Naam 💘</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    /* Page-specific styles */
+    body {
+        background-color: #fff0f5;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Ensure the content is visible above the floating particles */
+    .container {
+      position: relative;
+      z-index: 10; /* Ensure it is above the background particles */
+      padding: 20px;
+    }
+
+    .mood-page {
+      position: relative;
+      z-index: 10; /* Ensure the mood page content stays above background */
+      background-color: #ffffff; /* Set a background color to ensure visibility */
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .mood-header {
+        text-align: center;
+    }
+
+    .mood-page-title {
+        font-size: 2rem;
+        color: #c71585;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .mood-content {
+        border-left: 5px solid #db7093;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+    }
+
+    .mood-message {
+        color: #c71585;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .mood-media {
+        margin-bottom: 20px;
+    }
+
+    .mood-image {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .mood-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    /* Make sure all buttons are styled and visible */
+    .mood-button, .voice-note-button, .back-button {
+      background-color: #ff8cbf;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      border: none;
+    }
+
+    .mood-button:hover, .voice-note-button:hover, .back-button:hover {
+      background-color: #ff6b8b;
+      transform: scale(1.05);
+    }
+
+    .audio-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    .audio-toggle {
+        background-color: #ff8cbf;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: none;
+    }
+
+    .audio-toggle:hover {
+        background-color: #ff6b8b;
+    }
+
+    .warm-glow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255, 182, 193, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+        top: 0;
+        left: 0;
+        z-index: -1;
+        animation: pulse-slow 4s infinite alternate;
+    }
+
+    @keyframes pulse-slow {
+        from { opacity: 0.3; }
+        to { opacity: 0.7; }
+    }
+
+    @media (max-width: 768px) {
+        .mood-image {
+            max-width: 80%;
+        }
+
+        .mood-content {
+            padding: 10px;
+        }
+
+        .mood-message {
+            font-size: 1rem;
+        }
+
+        .mood-actions {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+    .particle {
+      position: absolute;
+      animation-fill-mode: forwards;
+    }
+
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Ensure it stays behind content */
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateY(-120vh) scale(1.1); opacity: 0; }
+    }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="warm-glow"></div>
+    
+    <div class="container">
+        <div class="mood-page">
+            <header class="mood-header">
+                <h1 class="mood-page-title">Dard waale din? Main tere saath hoon 💗</h1>
+            </header>
+            
+            <div class="mood-content">
+                <p class="mood-message typewriter">
+                    Period pain ya cramps se pareshan hai? I know it's tough. Kaash main wahan hota aur tere 
+                    liye hot water bottle laa sakta, ya tere favorite chocolate. Lekin door hone ke bawajood bhi, 
+                    main tere saath hoon. Yaad rakh, tu strong hai, brave hai, aur ye dard bhi guzar jayega. 
+                    Thoda rest kar, apne aap ko pamper kar, aur yaad rakh ki main hamesha tere liye hoon, 
+                    chahe kaise bhi din ho.
+                </p>
+                
+                <div class="mood-media">
+                    <img src="assets/images/placeholder-dard.jpg" alt="Comforting Image" class="mood-image">
+                </div>
+                
+                <button class="voice-note-button">
+                    <i class="fas fa-play"></i> Play Voice Note
+                </button>
+                
+                <div class="mood-actions">
+                    <button class="mood-button surprise-button" id="giftButton">
+                        <i class="fas fa-gift"></i> Open Comfort Gift
+                    </button>
+                    
+                    <button class="mood-button" id="cuddleButton">
+                        <i class="fas fa-heart"></i> Warm Virtual Hug
+                    </button>
+                    
+                    <button class="mood-button surprise-button">
+                        <i class="fas fa-mug-hot"></i> Virtual Hot Chocolate
+                    </button>
+                </div>
+                
+                <button class="back-button" onclick="location.href='index.html'">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </button>
+            </div>
+        </div>
+        
+        <div class="audio-controls">
+            <button class="audio-toggle" id="audioToggle">
+                <i class="fas fa-volume-up" id="audioIcon"></i>
+            </button>
+        </div>
+    </div>
+    
+    <audio id="backgroundMusic" loop>
+        <source src="assets/audio/background-music.mp3" type="audio/mp3">
+    </audio>
+    
+    <script src="assets/js/script.js"></script>
+<script>
+  const particles = document.getElementById("particles");
+
+  const stickerList = [
+    "tog1.png", "tog2.png", "tog3.png", "tog4.png", "tog5.png",
+    "tog6.png", "tog7.png", "tog8.png", "tog9.png", "tog10.png", "tog11.png"
+  ];
+
+  function createStickerParticle() {
+    const particle = document.createElement("div");
+    particle.className = "particle";
+    particle.style.left = `${Math.random() * 100}vw`;
+    particle.style.bottom = `-80px`;
+    particle.style.width = `${Math.random() * 30 + 40}px`;
+    particle.style.height = particle.style.width;
+    particle.style.animationDuration = `${8 + Math.random() * 4}s`;
+    particle.style.animationTimingFunction = 'ease-in';
+    particle.style.animationName = "floatUp";
+    particle.style.opacity = 0.05;
+
+    const img = document.createElement("img");
+    const chosen = stickerList[Math.floor(Math.random() * stickerList.length)];
+    img.src = `assets/images/stickers/${chosen}`;
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "contain";
+
+    particle.appendChild(img);
+    particles.appendChild(particle);
+
+    setTimeout(() => {
+      particle.remove();
+    }, 19000);
+  }
+
+  setInterval(() => {
+    if (document.hasFocus()) {
+      createStickerParticle();
+    }
+  }, 300);
+
+  for (let i = 0; i < 25; i++) {
+    createStickerParticle();
+  }
+</script>
+</body>
+</html>
